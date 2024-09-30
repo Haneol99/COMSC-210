@@ -24,18 +24,23 @@ class Movie
 
         void print() 
         {
-            
+            cout << "Movie: " << movieTiltle << endl;
+            cout << setw(W15) << "Year released: " << yearReleased << endl;
+            cout << setw(W15) << "Screenwriter: " << screenWriter << endl;
+            cout << endl;
         }
-
-
-
-
-
 
 };
 
 int main()
 {
+    vector<Movie> movie;
+    ifstream inFile("/Users/yeomhan-eol/COMSC210/Assignment/movie.txt");
+    if (!inFile.is_open())
+    {
+        cout << "file is not open!" << endl;
+        return 4;
+    }
 
     return 0;
 }
