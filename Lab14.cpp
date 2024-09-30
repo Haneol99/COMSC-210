@@ -30,27 +30,44 @@ class Color
             cout << "Blue : " << blue << endl;
         }
 
-
-
 };
+
+void print(Color);
 
 int main()
 {
-
     Color yellow;
+    yellow.setName("Yellow");
     yellow.setRed(255);
     yellow.setGreen(255);
     yellow.setBlue(0);
+    yellow.print();
+    print(yellow);
 
     Color orange;
+    orange.setName("orange");
     orange.setRed(255);
     orange.setGreen(125);
     orange.setBlue(0);
+    orange.print();
+    print(orange);
 
-    Color 
+    Color ocean;
+    ocean.setName("ocean");
+    ocean.setRed(0);
+    ocean.setGreen(125);
+    ocean.setBlue(255);
+    ocean.print();
+    print(ocean);
 
 
 
 
     return 0;
+}
+
+void print(Color c)
+{
+    cout << c.getName() << " (" << c.getRed() << ", " 
+         << c.getGreen() << ", " << c.getBlue() <<" )" << endl << endl;
 }
