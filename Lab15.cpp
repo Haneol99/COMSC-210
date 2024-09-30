@@ -5,7 +5,7 @@
 
 using namespace std;
 
-const int W15 = 15;
+const int W20 = 20;
 
 class Movie
 {
@@ -25,8 +25,8 @@ class Movie
         void print() 
         {
             cout << "Movie: " << movieTiltle << endl;
-            cout << setw(W15) << "Year released: " << yearReleased << endl;
-            cout << setw(W15) << "Screenwriter: " << screenWriter << endl;
+            cout << setw(W20) << "Year released: " << yearReleased << endl;
+            cout << setw(W20) << "Screenwriter: " << screenWriter << endl;
             cout << endl;
         }
 
@@ -46,9 +46,25 @@ int main()
         return 4;
     }
 
-    while (getline(inFile, title))
+    while (getline(inFile, writer))
     {
+        inFile.ignore();
+        inFile >> year;
+        inFile.ignore();
+        getline(inFile, title);
 
+        Movie tmp;
+        tmp.setTitle(title);
+        tmp.setYear(year);
+        tmp.setWriter(writer);
+
+        movie.push_back(tmp);
+    }
+    inFile.close();
+
+    for(Movie m:movie)
+    {
+        m.print();
     }
     
 
