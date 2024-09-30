@@ -9,9 +9,12 @@ class Color
         int red;
         int green;
         int blue;
+        string name;
     
     public:
         // setter & getter
+        string getName() {return name;}
+        void setName(string n) { name = n; } 
         int getRed() const {return red;}
         void setRed(int r) {red = r;}
         int getGreen() const {return green;}
@@ -21,6 +24,7 @@ class Color
 
         void print() const
         {
+            cout << "COLOR : " << name << endl;
             cout << "RED : " << red << endl;
             cout << "Green : " << green << endl;
             cout << "Blue : " << blue << endl;
@@ -37,6 +41,13 @@ int main()
     yellow.setRed(255);
     yellow.setGreen(255);
     yellow.setBlue(0);
+
+    Color orange;
+    orange.setRed(255);
+    orange.setGreen(125);
+    orange.setBlue(0);
+
+    Color 
 
 
 
