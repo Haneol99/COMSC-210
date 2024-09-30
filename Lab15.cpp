@@ -15,8 +15,21 @@ class Movie
         string screenWriter;
     
     public:
-        string getTitle() const {return movieTiltle; }
-        
+        string getTitle() {return movieTiltle; }
+        void setTitle(string t) {movieTiltle = t;}
+        int getYear() const {return yearReleased;}
+        void setYear(int y) {yearReleased = y;}
+        string getwriter() {return screenWriter;}
+        void setWriter(string w) {screenWriter = w;}
+
+        void print() 
+        {
+            
+        }
+
+
+
+
 
 
 };
