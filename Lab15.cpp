@@ -36,11 +36,21 @@ int main()
 {
     vector<Movie> movie;
     ifstream inFile("/Users/yeomhan-eol/COMSC210/Assignment/movie.txt");
+    string title;
+    string writer;
+    int year;
+
     if (!inFile.is_open())
     {
         cout << "file is not open!" << endl;
         return 4;
     }
+
+    while (getline(inFile, title))
+    {
+
+    }
+    
 
     return 0;
 }
