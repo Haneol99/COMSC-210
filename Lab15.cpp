@@ -15,11 +15,11 @@ class Movie
         string screenWriter;
     
     public:
-        string getTitle() {return movieTiltle; }
+        //string getTitle() {return movieTiltle; }
         void setTitle(string t) {movieTiltle = t;}
-        int getYear() const {return yearReleased;}
+        //int getYear() const {return yearReleased;}
         void setYear(int y) {yearReleased = y;}
-        string getwriter() {return screenWriter;}
+        //string getwriter() {return screenWriter;}
         void setWriter(string w) {screenWriter = w;}
 
         void print() 
@@ -46,12 +46,11 @@ int main()
         return 4;
     }
 
-    while (getline(inFile, writer))
+    while (getline(inFile, title))
     {
-        inFile.ignore();
         inFile >> year;
         inFile.ignore();
-        getline(inFile, title);
+        getline(inFile, writer);
 
         Movie tmp;
         tmp.setTitle(title);
