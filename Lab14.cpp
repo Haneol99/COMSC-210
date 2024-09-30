@@ -33,5 +33,13 @@ class Color
 int main()
 {
 
+    Color yellow;
+    yellow.setRed(255);
+    yellow.setGreen(255);
+    yellow.setBlue(0);
+
+
+
+
     return 0;
 }
