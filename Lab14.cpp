@@ -11,12 +11,22 @@ class Color
         int blue;
     
     public:
-        // setter
+        // setter & getter
+        int getRed() const {return red;}
         void setRed(int r) {red = r;}
+        int getGreen() const {return green;}
         void setGreen(int g) { green = g;}
+        int getBlue() const {return blue;}
         void setBlue(int b) { blue = b;}
-        // getter
-        
+
+        void print() const
+        {
+            cout << "RED : " << red << endl;
+            cout << "Green : " << green << endl;
+            cout << "Blue : " << blue << endl;
+        }
+
+
 
 };
 
