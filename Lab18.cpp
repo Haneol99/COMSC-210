@@ -26,6 +26,9 @@ struct Node
     Node *next;
 };
 
+void addHead(Node*& , double , string );
+void addTail(Node*& , double , string );
+
 int main()
 {
     Node *head = nullptr;
@@ -50,41 +53,11 @@ int main()
 
     if (oneOrTwo == 1)
     {
-        Node *newNode = new Node;
-        if (!head)
-        {
-            head = newNode;
-            newNode->next = nullptr;
-            newNode->rating = mainRating;
-            newNode->comment = mainComment;
-        }
-        else
-        {
-            newNode->next = head;
-            newNode->rating = mainRating;
-            newNode->comment = mainComment;
-            head = newNode;
-        }
+        addHead(head, mainRating, mainComment);
     }
     else if (oneOrTwo == 2)
     {
-        Node *newNode = new Node;
-        newNode->rating = mainRating;
-        newNode->comment = mainComment;
-        newNode->next = nullptr;
-        if (!head)
-        {
-            head = newNode;
-        }
-        else
-        {
-            Node *temp = head;
-            while (temp->next != nullptr)
-            {
-                temp = temp->next;
-            }
-            temp->next = newNode;
-        }
+        addTail(head, mainRating, mainComment);
     }
 
     cout << "Enter another review? Y/N: ";
@@ -102,41 +75,11 @@ int main()
 
         if (oneOrTwo == 1)
         {
-            Node *newNode = new Node;
-            if (!head)
-            {
-                head = newNode;
-                newNode->next = nullptr;
-                newNode->rating = mainRating;
-                newNode->comment = mainComment;
-            }
-            else
-            {
-                newNode->next = head;
-                newNode->rating = mainRating;
-                newNode->comment = mainComment;
-                head = newNode;
-            }
+            addHead(head, mainRating, mainComment);
         }
         else if (oneOrTwo == 2)
         {
-            Node *newNode = new Node;
-            newNode->rating = mainRating;
-            newNode->comment = mainComment;
-            newNode->next = nullptr;
-            if (!head)
-            {
-                head = newNode;
-            }
-            else
-            {
-                Node *temp = head;
-                while (temp->next != nullptr)
-                {
-                    temp = temp->next;
-                }
-                temp->next = newNode;
-            }
+            addTail(head, mainRating, mainComment);
         }
 
         cout << "Enter another review? Y/N: ";
@@ -162,4 +105,44 @@ int main()
     cout << "> Average: " << total / count << endl;
 
     return 0;
+}
+
+void addHead(Node*& head, double r, string c)
+{
+    Node *newNode = new Node;
+        if (!head)
+        {
+            head = newNode;
+            newNode->next = nullptr;
+            newNode->rating = r;
+            newNode->comment = c;
+        }
+        else
+        {
+            newNode->next = head;
+            newNode->rating = r;
+            newNode->comment = c;
+            head = newNode;
+        }
+}
+
+void addTail(Node*& head, double r, string c)
+{
+     Node *newNode = new Node;
+        newNode->rating = r;
+        newNode->comment = c;
+        newNode->next = nullptr;
+        if (!head)
+        {
+            head = newNode;
+        }
+        else
+        {
+            Node *temp = head;
+            while (temp->next != nullptr)
+            {
+                temp = temp->next;
+            }
+            temp->next = newNode;
+        }
 }
