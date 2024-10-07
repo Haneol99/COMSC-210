@@ -28,6 +28,7 @@ struct Node
 
 void addHead(Node*& , double , string );
 void addTail(Node*& , double , string );
+void outputting(Node*);
 
 int main()
 {
@@ -87,22 +88,7 @@ int main()
     }
 
     // output
-    if (!head)
-    {
-        cout << "Empty list.\n";
-        return 0;
-    }
-    int count = 1;
-    double total = 0;
-    Node *current = head;
-
-    while (current)
-    {
-        cout << "> Review #" << count++ << ": " << current->rating << ": " << current->comment << endl;
-        total += current->rating;
-        current = current->next;
-    }
-    cout << "> Average: " << total / count << endl;
+    outputting(head);
 
     return 0;
 }
@@ -145,4 +131,25 @@ void addTail(Node*& head, double r, string c)
             }
             temp->next = newNode;
         }
+}
+
+void outputting(Node* head)
+{
+    if (!head)
+    {
+        cout << "Empty list.\n";
+        return;
+    }
+    int count = 1;
+    double total = 0;
+    Node *current = head;
+
+    while (current)
+    {
+        cout << setw(5) << "" << "> Review #" << count++ << ": " << current->rating << ": " << current->comment << endl;
+        total += current->rating;
+        current = current->next;
+    }
+    int i = (count -1);
+    cout << setw(5) << "" << "> Average: " << total / (count-1) << endl;
 }
