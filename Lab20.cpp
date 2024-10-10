@@ -10,13 +10,15 @@ private:
     double * prices;
 public:
     // constructors
-    Chair() {
+    Chair() {   //default constructor --> we want it to randomly select 3 or 4 legs, 
+                // and to randomly select prices (including dollars and cents) from $100.00 to $999.99.
+        const int MIN = 10000, MAX = 99999;
         prices = new double[SIZE];
-        legs = 0;
+        legs = rand() % 2 + 3;
         for (int i = 0; i < SIZE; i++)
-            prices[i] = 0;
+            prices[i]= (rand() % (MAX-MIN+1) + MIN) / (double) 100;
     }
-    Chair(int l) {
+    Chair(int l) {  // parameter constructor -->  Make it have two parameters: number of legs, and an array of 3 doubles (the prices).
         prices = new double[SIZE];
         legs = l;
         for (int i = 0; i < SIZE; i++)
@@ -65,6 +67,7 @@ int main() {
     livingChair = nullptr;
 
     //creating dynamic array of chair objects
+    // In the third code block (starting at line 67), amend this such that the default constructors are used to populate these objects.
     Chair *collection = new Chair[SIZE];
     collection[0].setLegs(4);
     collection[0].setPrices(441.41, 552.52, 663.63);
