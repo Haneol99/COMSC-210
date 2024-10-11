@@ -27,6 +27,33 @@ Backward:
 #include <iostream>
 using namespace std;
 const int MIN_NR = 10, MAX_NR = 99, MIN_LS = 5, MAX_LS = 20;
+
+class Goat
+{
+    private:
+        int age;
+        string name;
+        string color;
+        string names[15] = {"Buttercup", "Clover", "Daisy", "Fawn", "Hazel", "Honey", "Ivy",
+                        "Luna", "Misty", "Pepper", "Poppy", "Rosie", "Sage", "Willow", "Zinnia"};
+        string colors[15] = {"Butterscotch", "Cinnamon", "Fawn", "Ginger", "Honey", "Lavender", "Mocha", "Olive",
+                            "Peppermint", "Rose Gold", "Sandalwood", "Snowflake", "Sunbeam", "Toffee", "Walnut"};
+    
+    public:
+        //default constructor and parameter constructor
+        Goat()
+        {
+            age = rand() % 20 +1;
+            name = names[rand() % 15];
+            color = colors[rand() % 15];
+        }
+
+        Goat(int a, string b, string c)
+        {
+            
+        }
+};
+
 class DoublyLinkedList
 {
 private:
