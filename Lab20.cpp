@@ -50,6 +50,11 @@ public:
         cout << endl << "Historical avg price: " << getAveragePrices();
         cout << endl << endl;
     }
+
+    ~Chair()
+    {
+        delete[] prices;
+    }
 };
 
 int main() {
