@@ -54,6 +54,20 @@ class Goat
             name = b;
             color = c;
         }
+
+        //setter getter
+        int getAge() const
+        {
+            return age;
+        }
+        string getName() const
+        {
+            return name;
+        }
+        string getColor() const
+        {
+            return color;
+        }
 };
 
 class DoublyLinkedList
@@ -105,63 +119,7 @@ public:
             head = newNode;
         }
     }
-    // void insert_after(Goat value, int position)
-    // {
-    //     if (position < 0)
-    //     {
-    //         cout << "Position must be >= 0." << endl;
-    //         return;
-    //     }
-    //     Node *newNode = new Node(value);
-    //     if (!head)
-    //     {
-    //         head = tail = newNode;
-    //         return;
-    //     }
-    //     Node *temp = head;
-    //     for (int i = 0; i < position && temp; ++i)
-    //         temp = temp->next;
-    //     if (!temp)
-    //     {
-    //         cout << "Position exceeds list size. Node not inserted.\n";
-    //         delete newNode;
-    //         return;
-    //     }
-    //     newNode->next = temp->next;
-    //     newNode->prev = temp;
-    //     if (temp->next)
-    //         temp->next->prev = newNode;
-    //     else
-    //         tail = newNode; // Inserting at the end
-    //     temp->next = newNode;
-    // }
-    // void delete_node(Goat value)
-    // {
-    //     if (!head)
-    //         return; // Empty list
-    //     Node *temp = head;
-    //     while (temp && temp->data != value)
-    //         temp = temp->next;
-    //     if (!temp)
-    //         return; // Value not found
-    //     if (temp->prev)
-    //     {
-    //         temp->prev->next = temp->next;
-    //     }
-    //     else
-    //     {
-    //         head = temp->next; // Deleting the head
-    //     }
-    //     if (temp->next)
-    //     {
-    //         temp->next->prev = temp->prev;
-    //     }
-    //     else
-    //     {
-    //         tail = temp->prev; // Deleting the tail
-    //     }
-    //     delete temp;
-    // }
+
     void print() 
     {
         Node *current = head;
@@ -171,7 +129,8 @@ public:
         while (current)
         {
 
-            cout << current->data << " ";
+            cout << current->data.getName() << " (" << current->data.getColor() 
+            << ", " << current->data.getAge() << ") ";
             current = current->next;
         }
         cout << endl;
@@ -183,7 +142,8 @@ public:
             return;
         while (current)
         {
-            cout << current->data << " ";
+            cout << current->data.getName() << " (" << current->data.getColor() 
+            << ", " << current->data.getAge() << ") ";
             current = current->prev;
         }
         cout << endl;
@@ -201,10 +161,11 @@ public:
 // Driver program
 int main()
 {
+    srand(time(0));
     DoublyLinkedList list;
-    int size = rand() % (MAX_LS - MIN_LS + 1) + MIN_LS;
+    int size = rand() % 16 + 6;
     for (int i = 0; i < size; ++i)
-        list.push_back(rand() % (MAX_NR - MIN_NR + 1) + MIN_NR);
+        list.push_back();
     cout << "List forward: ";
     list.print();
     cout << "List backward: ";
