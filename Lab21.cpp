@@ -105,70 +105,72 @@ public:
             head = newNode;
         }
     }
-    void insert_after(Goat value, int position)
-    {
-        if (position < 0)
-        {
-            cout << "Position must be >= 0." << endl;
-            return;
-        }
-        Node *newNode = new Node(value);
-        if (!head)
-        {
-            head = tail = newNode;
-            return;
-        }
-        Node *temp = head;
-        for (int i = 0; i < position && temp; ++i)
-            temp = temp->next;
-        if (!temp)
-        {
-            cout << "Position exceeds list size. Node not inserted.\n";
-            delete newNode;
-            return;
-        }
-        newNode->next = temp->next;
-        newNode->prev = temp;
-        if (temp->next)
-            temp->next->prev = newNode;
-        else
-            tail = newNode; // Inserting at the end
-        temp->next = newNode;
-    }
-    void delete_node(int value)
-    {
-        if (!head)
-            return; // Empty list
-        Node *temp = head;
-        while (temp && temp->data != value)
-            temp = temp->next;
-        if (!temp)
-            return; // Value not found
-        if (temp->prev)
-        {
-            temp->prev->next = temp->next;
-        }
-        else
-        {
-            head = temp->next; // Deleting the head
-        }
-        if (temp->next)
-        {
-            temp->next->prev = temp->prev;
-        }
-        else
-        {
-            tail = temp->prev; // Deleting the tail
-        }
-        delete temp;
-    }
-    void print()
+    // void insert_after(Goat value, int position)
+    // {
+    //     if (position < 0)
+    //     {
+    //         cout << "Position must be >= 0." << endl;
+    //         return;
+    //     }
+    //     Node *newNode = new Node(value);
+    //     if (!head)
+    //     {
+    //         head = tail = newNode;
+    //         return;
+    //     }
+    //     Node *temp = head;
+    //     for (int i = 0; i < position && temp; ++i)
+    //         temp = temp->next;
+    //     if (!temp)
+    //     {
+    //         cout << "Position exceeds list size. Node not inserted.\n";
+    //         delete newNode;
+    //         return;
+    //     }
+    //     newNode->next = temp->next;
+    //     newNode->prev = temp;
+    //     if (temp->next)
+    //         temp->next->prev = newNode;
+    //     else
+    //         tail = newNode; // Inserting at the end
+    //     temp->next = newNode;
+    // }
+    // void delete_node(Goat value)
+    // {
+    //     if (!head)
+    //         return; // Empty list
+    //     Node *temp = head;
+    //     while (temp && temp->data != value)
+    //         temp = temp->next;
+    //     if (!temp)
+    //         return; // Value not found
+    //     if (temp->prev)
+    //     {
+    //         temp->prev->next = temp->next;
+    //     }
+    //     else
+    //     {
+    //         head = temp->next; // Deleting the head
+    //     }
+    //     if (temp->next)
+    //     {
+    //         temp->next->prev = temp->prev;
+    //     }
+    //     else
+    //     {
+    //         tail = temp->prev; // Deleting the tail
+    //     }
+    //     delete temp;
+    // }
+    void print() 
     {
         Node *current = head;
         if (!current)
+            cout << "List is empty"<< endl;
             return;
         while (current)
         {
+
             cout << current->data << " ";
             current = current->next;
         }
