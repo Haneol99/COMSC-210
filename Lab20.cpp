@@ -18,11 +18,13 @@ public:
         for (int i = 0; i < SIZE; i++)
             prices[i]= (rand() % (MAX-MIN+1) + MIN) / (double) 100;
     }
-    Chair(int l) {  // parameter constructor -->  Make it have two parameters: number of legs, and an array of 3 doubles (the prices).
+
+    Chair(int l, double p[SIZE]) {  // parameter constructor -->  Make it have two parameters: number of legs, 
+                    // and an array of 3 doubles (the prices).
         prices = new double[SIZE];
         legs = l;
         for (int i = 0; i < SIZE; i++)
-            prices[i] = 0;
+            prices[i] = p[i];
     }
 
     // setters and getters
@@ -55,19 +57,18 @@ int main() {
 
     //creating pointer to first chair object
     Chair *chairPtr = new Chair;
-    chairPtr->setLegs(4);
-    chairPtr->setPrices(121.21, 232.32, 414.14);
     chairPtr->print();
 
     //creating dynamic chair object with constructor
-    Chair *livingChair = new Chair(3);
-    livingChair->setPrices(525.25, 434.34, 252.52);
-    livingChair->print();
-    delete livingChair;
-    livingChair = nullptr;
+    // Chair *livingChair = new Chair(3);
+    // livingChair->setPrices(525.25, 434.34, 252.52);
+    // livingChair->print();
+    // delete livingChair;
+    // livingChair = nullptr;
 
     //creating dynamic array of chair objects
-    // In the third code block (starting at line 67), amend this such that the default constructors are used to populate these objects.
+    // In the third code block (starting at line 67), amend this such that the 
+    // default constructors are used to populate these objects.
     Chair *collection = new Chair[SIZE];
     collection[0].setLegs(4);
     collection[0].setPrices(441.41, 552.52, 663.63);

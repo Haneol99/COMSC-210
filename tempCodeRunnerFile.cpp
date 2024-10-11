@@ -1,51 +1,10 @@
-    // while (anotherReview == 'Y' || anotherReview == 'y')
-    // {
-    //     cout << "Enter review rating 0-5: ";
-    //     cin >> mainRating;
-
-    //     cin.ignore();
-
-    //     cout << "Enter review comments: ";
-    //     getline(cin, mainComment);
-
-    //     if (oneOrTwo == 1)
-    //     {
-    //         Node *newNode = new Node;
-    //         if (!head)
-    //         {
-    //             head = newNode;
-    //             newNode->next = nullptr;
-    //             newNode->rating = mainRating;
-    //             newNode->comment = mainComment;
-    //         }
-    //         else
-    //         {
-    //             newNode->next = head;
-    //             newNode->rating = mainRating;
-    //             newNode->comment = mainComment;
-    //             head = newNode;
-    //         }
-    //     }
-    //     else if (oneOrTwo == 2)
-    //     {
-    //         Node *newNode = new Node;
-    //         newNode->rating = mainRating;
-    //         newNode->comment = mainComment;
-    //         newNode->next = nullptr;
-    //         if (!head)
-    //         {
-    //             head = newNode;
-    //         }
-    //         else
-    //         {
-    //             Node *temp = head;
-    //             while (temp->next != nullptr)
-    //             {
-    //                 temp = temp->next;
-    //             }
-    //             temp->next = newNode;
-    //         }
-    //     }
-    //     cout << "Enter another review? Y/N: ";
-    //     cin >> anotherReview;
-    // }
+    // Chair *collection = new Chair[SIZE];
+    // collection[0].setLegs(4);
+    // collection[0].setPrices(441.41, 552.52, 663.63);
+    // collection[1].setLegs(4);
+    // collection[1].setPrices(484.84, 959.59, 868.68);
+    // collection[2].setLegs(4);
+    // collection[2].setPrices(626.26, 515.15, 757.57);
+    // for (int i = 0; i < SIZE; i++)
+    //     collection[i].print();
+    
