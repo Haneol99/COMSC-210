@@ -25,6 +25,7 @@ Backward:
 */
 
 #include <iostream>
+#include <iomanip>
 using namespace std;
 const int MIN_NR = 10, MAX_NR = 99, MIN_LS = 5, MAX_LS = 20;
 
@@ -123,14 +124,16 @@ public:
     void print() 
     {
         Node *current = head;
-        if (!current)
+        if (!current){
             cout << "List is empty"<< endl;
             return;
+        }
+
         while (current)
         {
 
-            cout << current->data.getName() << " (" << current->data.getColor() 
-            << ", " << current->data.getAge() << ") ";
+            cout << setw(5) << "" << current->data.getName() << " (" << current->data.getColor() 
+            << ", " << current->data.getAge() << ") " << endl;
             current = current->next;
         }
         cout << endl;
@@ -138,12 +141,15 @@ public:
     void print_reverse()
     {
         Node *current = tail;
-        if (!current)
+        if (!current){
+            cout << "List is empty" << endl;
             return;
+        }
+
         while (current)
         {
-            cout << current->data.getName() << " (" << current->data.getColor() 
-            << ", " << current->data.getAge() << ") ";
+            cout << setw(5) << "" << current->data.getName() << " (" << current->data.getColor() 
+            << ", " << current->data.getAge() << ") " << endl;
             current = current->prev;
         }
         cout << endl;
@@ -165,14 +171,16 @@ int main()
     DoublyLinkedList list;
     int size = rand() % 16 + 6;
     for (int i = 0; i < size; ++i)
-        list.push_back();
-    cout << "List forward: ";
+    {
+        Goat goat;
+        list.push_back(goat);
+    }
+    cout << "List forward: " << endl;
     list.print();
-    cout << "List backward: ";
+
+
+    cout << "List backward: " << endl;
     list.print_reverse();
-    cout << "Deleting list, then trying to print.\n";
-    list.~DoublyLinkedList();
-    cout << "List forward: ";
-    list.print();
+
     return 0;
 }
