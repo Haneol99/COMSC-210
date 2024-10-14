@@ -102,7 +102,23 @@ public:
         if(head == temp){
             head = nullptr;
             tail = nullptr;
+        } else {
+            tail = temp -> prev;
+            tail -> next = nullptr;
         }
+        delete temp;
+    }
+
+    void delete_pos(int position){
+        if(!head){
+            return;
+        } else if(position < 0){
+            cout << "Position must be >= 0." << endl;
+            return;
+        }
+        Node* temp = head;
+        
+
     }
 
     void delete_val(int value) {
