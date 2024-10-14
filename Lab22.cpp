@@ -83,7 +83,18 @@ public:
         temp->next = newNode;
     }
 
-    void delete_node(int value) {
+    void pop_front() {
+        if(!head) return;
+        Node* temp = head;
+        if(head == tail){
+            head = nullptr;
+            tail = nullptr;
+        }
+
+        delete temp;
+    }
+
+    void delete_val(int value) {
         if (!head) return; // Empty list
 
         Node* temp = head;
