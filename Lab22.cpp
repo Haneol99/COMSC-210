@@ -117,7 +117,21 @@ public:
             return;
         }
         Node* temp = head;
-        
+        for (int i = 0; i < position && temp; ++i)
+            temp = temp->next;
+
+        if (!temp) {
+            cout << "Position exceeds list size. Node not inserted.\n";
+            return;
+        } else if(position == 0){
+            pop_front();
+        } else if(temp == tail){
+            pop_back();
+        } else{
+            temp->prev->next = temp->next;
+            temp->next->prev = temp->prev;
+            delete temp;
+        }
 
     }
 
