@@ -32,116 +32,16 @@ private:
 public:
     // constructor
     DoublyLinkedList();
-
     void push_back(int );
-
     void push_front(int );
-
     void insert_after(int, int); 
-
-    void pop_front() {
-        if(!head) return;
-        Node* temp = head;
-        if(temp == tail){
-            head = nullptr;
-            tail = nullptr;
-        } else {
-            head = temp -> next;
-            head -> prev = nullptr;
-        }
-        delete temp;
-    }
-
-    void pop_back(){
-        if(!tail) return;
-        Node* temp = tail;
-        if(head == temp){
-            head = nullptr;
-            tail = nullptr;
-        } else {
-            tail = temp -> prev;
-            tail -> next = nullptr;
-        }
-        delete temp;
-    }
-
-    void delete_pos(int position){
-        if(!head){
-            return;
-        } else if(position < 0){
-            cout << "Position must be >= 0." << endl;
-            return;
-        }
-        Node* temp = head;
-        for (int i = 0; i < position && temp; ++i)
-            temp = temp->next;
-
-        if (!temp) {
-            cout << "Position exceeds list size. Node not inserted.\n";
-            return;
-        } else if(position == 0){
-            pop_front();
-        } else if(temp == tail){
-            pop_back();
-        } else{
-            temp->prev->next = temp->next;
-            temp->next->prev = temp->prev;
-            delete temp;
-        }
-
-    }
-
-    void delete_val(int value) {
-        if (!head) return; // Empty list
-
-        Node* temp = head;
-        while (temp && temp->data != value)
-            temp = temp->next;
-
-        if (!temp) return; // Value not found
-
-        if (temp->prev) {
-            temp->prev->next = temp->next;
-        } else {
-            head = temp->next; // Deleting the head
-        }
-
-        if (temp->next) {
-            temp->next->prev = temp->prev;
-        } else {
-            tail = temp->prev; // Deleting the tail
-        }
-
-        delete temp;
-    }
-
-    void print() {
-        Node* current = head;
-        if (!current) return;
-        while (current) {
-            cout << current->data << " ";
-            current = current->next;
-        }
-        cout << endl;
-    }
-
-    void print_reverse() {
-        Node* current = tail;
-        if (!current) return;
-        while (current) {
-            cout << current->data << " ";
-            current = current->prev;
-        }
-        cout << endl;
-    }
-
-    ~DoublyLinkedList() {
-        while (head) {
-            Node* temp = head;
-            head = head->next;
-            delete temp;
-        }
-    }
+    void pop_front();
+    void pop_back();
+    void delete_pos(int);
+    void delete_val(int );
+    void print();
+    void print_reverse();
+    ~DoublyLinkedList();
 };
 
 // Driver program
@@ -241,4 +141,108 @@ void DoublyLinkedList::insert_after(int value, int position) {
         else
             tail = newNode; // Inserting at the end
         temp->next = newNode;
+    }
+
+void DoublyLinkedList::pop_front() {
+        if(!head) return;
+        Node* temp = head;
+        if(temp == tail){
+            head = nullptr;
+            tail = nullptr;
+        } else {
+            head = temp -> next;
+            head -> prev = nullptr;
+        }
+        delete temp;
+    }
+
+void DoublyLinkedList::pop_back(){
+        if(!tail) return;
+        Node* temp = tail;
+        if(head == temp){
+            head = nullptr;
+            tail = nullptr;
+        } else {
+            tail = temp -> prev;
+            tail -> next = nullptr;
+        }
+        delete temp;
+    }
+
+void DoublyLinkedList::delete_pos(int position){
+        if(!head){
+            return;
+        } else if(position < 0){
+            cout << "Position must be >= 0." << endl;
+            return;
+        }
+        Node* temp = head;
+        for (int i = 0; i < position && temp; ++i)
+            temp = temp->next;
+
+        if (!temp) {
+            cout << "Position exceeds list size. Node not inserted.\n";
+            return;
+        } else if(position == 0){
+            pop_front();
+        } else if(temp == tail){
+            pop_back();
+        } else{
+            temp->prev->next = temp->next;
+            temp->next->prev = temp->prev;
+            delete temp;
+        }
+
+    }
+
+void DoublyLinkedList::delete_val(int value) {
+        if (!head) return; // Empty list
+
+        Node* temp = head;
+        while (temp && temp->data != value)
+            temp = temp->next;
+
+        if (!temp) return; // Value not found
+
+        if (temp->prev) {
+            temp->prev->next = temp->next;
+        } else {
+            head = temp->next; // Deleting the head
+        }
+
+        if (temp->next) {
+            temp->next->prev = temp->prev;
+        } else {
+            tail = temp->prev; // Deleting the tail
+        }
+
+        delete temp;
+    }
+
+void DoublyLinkedList::print() {
+        Node* current = head;
+        if (!current) return;
+        while (current) {
+            cout << current->data << " ";
+            current = current->next;
+        }
+        cout << endl;
+    }
+
+void DoublyLinkedList::print_reverse() {
+        Node* current = tail;
+        if (!current) return;
+        while (current) {
+            cout << current->data << " ";
+            current = current->prev;
+        }
+        cout << endl;
+    }
+
+DoublyLinkedList::~DoublyLinkedList() {
+        while (head) {
+            Node* temp = head;
+            head = head->next;
+            delete temp;
+        }
     }
