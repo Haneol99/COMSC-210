@@ -86,12 +86,23 @@ public:
     void pop_front() {
         if(!head) return;
         Node* temp = head;
-        if(head == tail){
+        if(temp == tail){
+            head = nullptr;
+            tail = nullptr;
+        } else {
+            head = temp -> next;
+            head -> prev = nullptr;
+        }
+        delete temp;
+    }
+
+    void pop_back(){
+        if(!tail) return;
+        Node* temp = tail;
+        if(head == temp){
             head = nullptr;
             tail = nullptr;
         }
-
-        delete temp;
     }
 
     void delete_val(int value) {
