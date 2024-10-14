@@ -1,3 +1,6 @@
+// COMSC-210 | Lab 22 | Haneol Yeom
+// IDE used: VS code
+
 // name changing : delete_node() --> delete_val()
 // create pop_front() : delete the head node
 // create pop_back() : delete the tail node
@@ -28,60 +31,13 @@ private:
 
 public:
     // constructor
-    DoublyLinkedList() { head = nullptr; tail = nullptr; }
+    DoublyLinkedList();
 
-    void push_back(int value) {
-        Node* newNode = new Node(value);
-        if (!tail)  // if there's no tail, the list is empty
-            head = tail = newNode;
-        else {
-            tail->next = newNode;
-            newNode->prev = tail;
-            tail = newNode;
-        }
-    }
+    void push_back(int );
 
-    void push_front(int value) {
-        Node* newNode = new Node(value);
-        if (!head)  // if there's no head, the list is empty
-            head = tail = newNode;
-        else {
-            newNode->next = head;
-            head->prev = newNode;
-            head = newNode;
-        }
-    }
+    void push_front(int );
 
-    void insert_after(int value, int position) {
-        if (position < 0) {
-            cout << "Position must be >= 0." << endl;
-            return;
-        }
-
-        Node* newNode = new Node(value);
-        if (!head) {
-            head = tail = newNode;
-            return;
-        }
-
-        Node* temp = head;
-        for (int i = 0; i < position && temp; ++i)
-            temp = temp->next;
-
-        if (!temp) {
-            cout << "Position exceeds list size. Node not inserted.\n";
-            delete newNode;
-            return;
-        }
-
-        newNode->next = temp->next;
-        newNode->prev = temp;
-        if (temp->next)
-            temp->next->prev = newNode;
-        else
-            tail = newNode; // Inserting at the end
-        temp->next = newNode;
-    }
+    void insert_after(int, int); 
 
     void pop_front() {
         if(!head) return;
@@ -231,3 +187,58 @@ int main() {
 
     return 0;
 }
+
+DoublyLinkedList::DoublyLinkedList() { head = nullptr; tail = nullptr; }
+
+void DoublyLinkedList::push_back(int value) {
+    Node* newNode = new Node(value);
+    if (!tail)  // if there's no tail, the list is empty
+        head = tail = newNode;
+    else {
+        tail->next = newNode;
+        newNode->prev = tail;
+        tail = newNode;
+        }
+}
+
+void DoublyLinkedList::push_front(int value) {
+        Node* newNode = new Node(value);
+        if (!head)  // if there's no head, the list is empty
+            head = tail = newNode;
+        else {
+            newNode->next = head;
+            head->prev = newNode;
+            head = newNode;
+        }
+    }
+
+void DoublyLinkedList::insert_after(int value, int position) {
+        if (position < 0) {
+            cout << "Position must be >= 0." << endl;
+            return;
+        }
+
+        Node* newNode = new Node(value);
+        if (!head) {
+            head = tail = newNode;
+            return;
+        }
+
+        Node* temp = head;
+        for (int i = 0; i < position && temp; ++i)
+            temp = temp->next;
+
+        if (!temp) {
+            cout << "Position exceeds list size. Node not inserted.\n";
+            delete newNode;
+            return;
+        }
+
+        newNode->next = temp->next;
+        newNode->prev = temp;
+        if (temp->next)
+            temp->next->prev = newNode;
+        else
+            tail = newNode; // Inserting at the end
+        temp->next = newNode;
+    }
