@@ -201,6 +201,29 @@ int main() {
     cout << "List backward: ";
     list.print_reverse();
 
+    cout << endl << "driver that fully exercises these changes made to the class." << endl << endl;
+
+    cout << "pop front : ";
+    list.pop_front();
+    list.print();
+    cout << endl;
+
+    cout << "pop back : ";
+    list.pop_back();
+    list.print();
+    cout << endl;
+
+    cout << "delete by position : ";
+    list.delete_pos(3);
+    list.print();
+    cout << endl;
+
+    cout << "delete by value : ";
+    list.delete_val(48);
+    list.print();
+    cout << endl;
+
+
     cout << "Deleting list, then trying to print.\n";
     list.~DoublyLinkedList();
     cout << "List forward: ";
