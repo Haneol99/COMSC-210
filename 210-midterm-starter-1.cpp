@@ -225,9 +225,8 @@ public:
 
         while(current){
             cout << current->data << " "; // print data of current
-            current = current->next;
-            if(current){
-                current = current->next;
+            if(current->next){
+                current = current->next -> next;
             }
         }
         cout << endl;
@@ -238,7 +237,16 @@ int main() {
     cout << MIN_NR + MIN_LS + MAX_NR + MAX_LS;  // dummy statement to avoid compiler warning
     DoublyLinkedList lst;
 
+    lst.push_back(1);
+    lst.push_back(2);
+    lst.push_back(3);
+    lst.push_back(4);
+    lst.push_back(5);
+    lst.push_back(6);
+    lst.push_back(7);
+    lst.push_back(8);
 
+    lst.every_other_element();
     
     return 0;
 }
