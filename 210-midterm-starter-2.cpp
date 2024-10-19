@@ -3,35 +3,56 @@ using namespace std;
 
 const int MIN_NR = 10, MAX_NR = 99, MIN_LS = 5, MAX_LS = 20;
 
-struct Node{
-    string name;
-    Node* next;
-    Node* prev;
 
-    Node(string n){
-        next = nullptr;
-        prev = nullptr;
+struct Node {
+    int data;
+    Node* prev;
+    Node* next;
+    Node(int val, Node* p = nullptr, Node* n = nullptr) {
+        data = val; 
+        prev = p;
+        next = n;
     }
 };
 
+
 class DoublyLinkedList {
 private:
-    struct Node {
-        int data;
-        Node* prev;
-        Node* next;
-        Node(int val, Node* p = nullptr, Node* n = nullptr) {
-            data = val; 
-            prev = p;
-            next = n;
-        }
-    };
+    
 
     Node* head;
     Node* tail;
 
 public:
     DoublyLinkedList() { head = nullptr; tail = nullptr; }
+
+    void addfront(const string& name){
+        Node* newNode = new Node(name);
+        if(!head){
+            head = tail = newNode;
+        } else{
+            newNode -> next = head;
+            head -> prev = newNode;
+            head = newNode;
+        }
+    }
+
+    void addBack(const string& name){
+        Node* newNode = new Node(name);
+        if(!tail){
+            head = tail = newNode;
+            newNode->prev = tail;
+            tail = newNode;
+        }
+    }
+
+    void removeFront(){
+        if(!head) return;
+        Node* temp = head;
+    }
+
+
+
 
     void insert_after(int value, int position) {
         if (position < 0) {
