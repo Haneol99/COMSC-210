@@ -32,24 +32,24 @@ public:
         }
 
         Node* newNode = new Node(value);    // make new node
-        if (!head) {
+        if (!head) {    // list empty -> setting new node = head and tail
             head = tail = newNode;
             return;
         }
 
-        Node* temp = head;
-        for (int i = 0; i < position && temp; ++i)
-            temp = temp->next;
+        Node* temp = head;  // set temp as head(first node)
+        for (int i = 0; i < position && temp; ++i) // for loop for traverse to position we want
+            temp = temp->next; // move to next node
 
-        if (!temp) {
-            cout << "Position exceeds list size. Node not inserted.\n";
-            delete newNode;
+        if (!temp) {    // if position bigger than size of list
+            cout << "Positi on exceeds list size. Node not inserted.\n";    // error message
+            delete newNode; // delete node
             return;
         }
 
-        newNode->next = temp->next;
-        newNode->prev = temp;
-        if (temp->next)
+        newNode->next = temp->next; // setting next of new node as next of temp 
+        newNode->prev = temp;   // setting prev of new node as temp
+        if (temp->next)     //
             temp->next->prev = newNode;
         else
             tail = newNode;
