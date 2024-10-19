@@ -62,32 +62,33 @@ public:
 
         Node* temp = head;  // setting temp as head(first node)
         
-        while (temp && temp->data != value)
-            temp = temp->next;
+        while (temp && temp->data != value) // while loop for traverse till finding the falue
+            temp = temp->next;  // move to next node
 
-        if (!temp) return; 
+        if (!temp) return; // if we cannot find the value --> return
 
-        if (temp->prev)
-            temp->prev->next = temp->next;
+        if (temp->prev) //if temp has prev node 
+            temp->prev->next = temp->next;  // setting next of prev as next of temp
         else
-            head = temp->next; 
+            head = temp->next;      // if temp is head -> update head
 
-        if (temp->next)
-            temp->next->prev = temp->prev;
+        if (temp->next) // if temp has next node 
+            temp->next->prev = temp->prev;  // setting prev of next as prev of temp
         else
-            tail = temp->prev; 
+            tail = temp->prev; // if temp is tail -> update tail
 
-        delete temp;
+        delete temp;    // delete node
     }
 
+    // function: delete node at a position we got(pos)
     void delete_pos(int pos) {
-        if (!head) {
-            cout << "List is empty." << endl;
-            return;
+        if (!head) {    // if list is empty
+            cout << "List is empty." << endl;   // error message
+            return; // return
         }
     
-        if (pos == 1) {
-            pop_front();
+        if (pos == 1) { // if pos is first position(first node)
+            pop_front();    // call pop_front
             return;
         }
     
@@ -139,6 +140,7 @@ public:
         }
     }
     
+    // function : 
     void pop_front() {
 
         if (!head) {
