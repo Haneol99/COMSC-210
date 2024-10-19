@@ -140,23 +140,23 @@ public:
         }
     }
     
-    // function : 
+    // function : delete first node from list
     void pop_front() {
 
-        if (!head) {
-            cout << "List is empty." << endl;
-            return;
+        if (!head) {    // if the list empty
+            cout << "List is empty." << endl;   // error message
+            return; // return
         }
 
-        Node * temp = head;
+        Node * temp = head; // temp as head
 
-        if (head->next) {
-            head = head->next;
-            head->prev = nullptr;
+        if (head->next) {   // if there is next after head
+            head = head->next;  // setting head as next
+            head->prev = nullptr;   // setting prev of new head to nullptr
         }
         else
-            head = tail = nullptr;
-        delete temp;
+            head = tail = nullptr;  // when we have only one node -> setting head and tail to nullptr
+        delete temp;    // delete node (old head) 
     }
 
     void pop_back() {
