@@ -178,36 +178,39 @@ public:
         delete temp;    // delete node (old tail)
     }
 
-    // destructor
+    // destructor: clean up
     ~DoublyLinkedList() {
-        while (head) {
-            Node* temp = head;
-            head = head->next;
-            delete temp;
+        while (head) {  // while loop: while there are nodes in list
+            Node* temp = head;  // make temp as head 
+            head = head->next;  // move head to next
+            delete temp;    // delete node(old head)
         }
     }
+
+    // funtion : print all in the list (head to tail)
     void print() {
-        Node* current = head;
-        if (!current) {
-            cout << "List is empty." << endl;
+        Node* current = head;  // make current as head
+        if (!current) { // if list is empty
+            cout << "List is empty." << endl;   // error message
             return;
         }
-        while (current) {
-            cout << current->data << " ";
-            current = current->next;
+        while (current) {   // while loop : while there are still nodes
+            cout << current->data << " ";   // print data of current
+            current = current->next;    // move to next
         }
         cout << endl;
     }
 
+    // function : print reverse from the list(tail to head)
     void print_reverse() {
-        Node* current = tail;
-        if (!current) { 
-            cout << "List is empty." << endl;
+        Node* current = tail;   // make current as tail
+        if (!current) { // if list is empty
+            cout << "List is empty." << endl;   // error message
             return;
         }
-        while (current) {
-            cout << current->data << " ";
-            current = current->prev;
+        while (current) {   // while loop : whle threre are still nodes
+            cout << current->data << " ";   // print data of the current
+            current = current->prev;    // move to prev(node)
         }
         cout << endl;
     }
