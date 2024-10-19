@@ -113,30 +113,32 @@ public:
         }
     
         Node* tempPrev = temp->prev;    // save prev node
-        tempPrev->next = temp->next;
-        temp->next->prev = tempPrev;
-        delete temp;
+        tempPrev->next = temp->next;    // setting next of prev as next of temp
+        temp->next->prev = tempPrev;    // setting prev of next as prev of temp
+        delete temp;    // delete node
     }
 
+    // function : add node to the end of list
     void push_back(int v) {
-        Node* newNode = new Node(v);
-        if (!tail)
-            head = tail = newNode;
+        Node* newNode = new Node(v);    // make new node with value v
+        if (!tail)  //if list is empty
+            head = tail = newNode; // setting head  and tail as newnode
         else {
-            tail->next = newNode;
-            newNode->prev = tail;
-            tail = newNode;
+            tail->next = newNode;   // setting next of tail as newnode
+            newNode->prev = tail;   // setting prev of newnode as tail
+            tail = newNode; // update tail = newnode
         }
     }
     
+    // function : add node to the front of list
     void push_front(int v) {
-        Node* newNode = new Node(v);
-        if (!head)
-            head = tail = newNode;
+        Node* newNode = new Node(v);    // make new node with value v
+        if (!head)  // if list is empty
+            head = tail = newNode;  // setting head and tail as newnode
         else {
-            newNode->next = head;
-            head->prev = newNode;
-            head = newNode;
+            newNode->next = head;   //setting next of newnode as head
+            head->prev = newNode;   // setting prev of head as newnode
+            head = newNode; // update head = newnode
         }
     }
     
