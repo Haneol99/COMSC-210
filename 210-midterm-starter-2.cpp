@@ -171,8 +171,23 @@ int main()
             cout << line.getBackName() << " exits the rear of the line\n";
             line.removeBack();
         }
-        return 0;
+
+        prob = rand() % 100 + 1;
+        if (prob <= 10)
+        {
+            int randomIndex = rand() % names.size();
+            cout << names[randomIndex] << " (VIP) joins the front of the line\n";
+            line.addFront(names[randomIndex] + " (VIP)");
+        }
+
+        cout << "Resulting line:\n";
+        line.print();
+
+    
     }
+
+    return 0;
+}
 
     vector<string> fileNames(const string &filename)
     {
