@@ -33,7 +33,7 @@ public:
         tail = nullptr;
     }
 
-    void addfront(const string &name)
+    void addFront(const string &name)
     {
         Node *newNode = new Node(name);
         if (!head)
