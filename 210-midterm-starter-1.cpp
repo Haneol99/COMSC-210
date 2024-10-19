@@ -24,7 +24,7 @@ public:
     // constructor
     DoublyLinkedList() { head = nullptr; tail = nullptr; }  // initialize head and tail to null
 
-    // function insert a new node at the position(int position)
+    // function: insert a new node at the position(int position)
     void insert_after(int value, int position) {
         if (position < 0) { // position must be 0
             cout << "Position must be >= 0." << endl;
@@ -49,17 +49,18 @@ public:
 
         newNode->next = temp->next; // setting next of new node as next of temp 
         newNode->prev = temp;   // setting prev of new node as temp
-        if (temp->next)     //
-            temp->next->prev = newNode;
-        else
-            tail = newNode;
-        temp->next = newNode;
+        if (temp->next)     // if temp has next node
+            temp->next->prev = newNode; // setting prev of next as newnode
+        else 
+            tail = newNode; // setting tail as newnode(if temp is last node)
+        temp->next = newNode;   // setting next of temp as newnode
     }
 
+    // function: delete node which has value we got(int value)
     void delete_val(int value) {
-        if (!head) return;
+        if (!head) return;  // if list is empty -> return
 
-        Node* temp = head;
+        Node* temp = head;  // setting temp as head(first node)
         
         while (temp && temp->data != value)
             temp = temp->next;
