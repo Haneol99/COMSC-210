@@ -6,7 +6,7 @@ const int MIN_NR = 10, MAX_NR = 99, MIN_LS = 5, MAX_LS = 20;
 
 
 struct Node {
-    int data;
+    string data;
     Node* prev;
     Node* next;
     Node(int val, Node* p = nullptr, Node* n = nullptr) {
@@ -19,8 +19,6 @@ struct Node {
 
 class DoublyLinkedList {
 private:
-    
-
     Node* head;
     Node* tail;
 
@@ -91,7 +89,7 @@ public:
         cout << endl;
     }
 };
-void fileNames(const string& filename){
+vector<string> fileNames(const string& filename){
         vector<string> names;
         ifstream inFile(filename);
         string name;
@@ -102,7 +100,10 @@ void fileNames(const string& filename){
 }
 
 int main() {
-    cout << MIN_NR + MIN_LS + MAX_NR + MAX_LS;  // dummy statement to avoid compiler warning
+    DoublyLinkedList lst;
+    vector<string> name = fileNames("/Users/yeomhan-eol/names.txt");
+    
+
 
     
     return 0;
