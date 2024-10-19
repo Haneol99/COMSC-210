@@ -88,31 +88,31 @@ public:
         }
     
         if (pos == 1) { // if pos is first position(first node)
-            pop_front();    // call pop_front
+            pop_front();    // call pop_front (delete first node)
             return;
         }
     
-        Node* temp = head;
+        Node* temp = head;  // setting temp as head
     
-        for (int i = 1; i < pos; i++){
-            if (!temp) {
-                cout << "Position doesn't exist." << endl;
+        for (int i = 1; i < pos; i++){  // for loop to traverse list till arrive the position
+            if (!temp) {    // if there is no position we want
+                cout << "Position doesn't exist." << endl;  // error message
                 return;
             }
             else
-                temp = temp->next;
+                temp = temp->next;  // move to next node
         }
-        if (!temp) {
-            cout << "Position doesn't exist." << endl;
+        if (!temp) {    // if there is no position
+            cout << "Position doesn't exist." << endl;  // error message
             return;
         }
     
-        if (!temp->next) {
-            pop_back();
+        if (!temp->next) {  // if temp is last node
+            pop_back(); // call pop_back() -> delete last node
             return;
         }
     
-        Node* tempPrev = temp->prev;
+        Node* tempPrev = temp->prev;    // save prev node
         tempPrev->next = temp->next;
         temp->next->prev = tempPrev;
         delete temp;
@@ -159,22 +159,24 @@ public:
         delete temp;    // delete node (old head) 
     }
 
+    // funtion: delete last node from the list
     void pop_back() {
-        if (!tail) {
-            cout << "List is empty." << endl;
+        if (!tail) {    // if the list is empty
+            cout << "List is empty." << endl;   // error message
             return;
         }
-        Node * temp = tail;
+        Node * temp = tail; // setting the temp as tail
 
-        if (tail->prev) {
-            tail = tail->prev;
-            tail->next = nullptr;
+        if (tail->prev) {   //if there is prev before tail
+            tail = tail->prev;  // setting tail as prev
+            tail->next = nullptr;   //setting next of new tail as nullptr(null)
         }
         else
-            head = tail = nullptr;
-        delete temp;
+            head = tail = nullptr;  // if we have only one node -> setting head and tail as nullptr
+        delete temp;    // delete node (old tail)
     }
 
+    // destructor
     ~DoublyLinkedList() {
         while (head) {
             Node* temp = head;
