@@ -214,10 +214,30 @@ public:
         }
         cout << endl;
     }
+
+    void every_other_element(){
+        Node* current = head; // make current as head
+
+        if(!current){   // if list is empty
+            cout << "list is empty" << endl;    // error message
+            return;
+        }
+
+        while(current){
+            cout << current->data << " "; // print data of current
+            current = current->next;
+            if(current){
+                current = current->next;
+            }
+        }
+        cout << endl;
+    }
 };
 
 int main() {
     cout << MIN_NR + MIN_LS + MAX_NR + MAX_LS;  // dummy statement to avoid compiler warning
+    DoublyLinkedList lst;
+
 
     
     return 0;
