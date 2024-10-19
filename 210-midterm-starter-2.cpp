@@ -122,17 +122,30 @@ public:
         }
         cout << endl;
     }
+
+    string getFrontName() const {
+        if (head != nullptr) {
+            return head->data;
+        }
+        return ""; 
+    }
+    string getBackName() const {
+        if (tail != nullptr) {
+            return tail->data;
+        }
+        return "";
+    }
 };
 vector<string> fileNames(const string &);
 
 int main()
 {
-    DoublyLinkedList lst;
-    vector<string> name = fileNames("/Users/yeomhan-eol/names.txt");
+    DoublyLinkedList line;
+    vector<string> names = fileNames("/Users/yeomhan-eol/names.txt");
 
-    for (const string &n : name)
+    for (const string &n : names)
     {
-        lst.addBack(n);
+        line.addBack(n);
     }
 
     cout << "Store opens:\n";
@@ -143,7 +156,7 @@ int main()
         line.addBack(names[randomIndex]);
     }
     cout << "Resulting line:\n";
-    lst.print();
+    line.print();
 
     for (int minute = 1; minute <= 20; ++minute)
     {
